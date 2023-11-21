@@ -20,11 +20,44 @@ Este projeto é um aplicativo interativo de estudo desenvolvido em Python, utili
 -   **spaCy**: Para processamento de linguagem natural, especificamente para análise sintática em português.
 -   **matplotlib**: Para a criação de gráficos de desempenho.
 
+## **Configuração e execução**
+Para configurar e executar este projeto localmente, siga estas etapas:
+
+**Configuração do Modelo LLM**
+
+Este projeto utiliza o modelo `Llama-2-7B` do Hugging Face. Para configurar o modelo no seu ambiente local, siga estas etapas:
+
+1. Visite a página do modelo [Llama-2-7B no Hugging Face](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML).
+2. Baixe o modelo para o seu sistema no formato bin.
+3. Coloque-o no diretório principal do projeto (o mesmo diretório onde o `main.py` está localizado).
+4. Certifique-se de que o caminho para o modelo está correto no código do projeto em `main.py`.
+
+**Executando o Projeto**
+
+Após configurar o modelo, você pode executar o projeto com o seguinte comando:
+
+```bash
+streamlit run main.py
+```
+
+Certifique-se de ter todas as dependências necessárias instaladas. Você pode instalá-las usando:
+```bash
+pip install -r requirements.txt
+```
+Em seguida, instale o modelo de linguagem português para o spaCy:
+```bash
+python -m spacy download pt_core_news_lg
+```
 
 
 ## **Créditos**
 
-Este projeto foi desenvolvido por Antonini Chiquetto como parte de um processo seletivo para estágio e pesquisa na área de AI/ML com foco em LLM, utilizando o modelo `Llama-2-7B` do repositório do Hugging Face.
+Este projeto foi desenvolvido por Antonini Chiquetto como parte de um processo seletivo para estágio e iniciação científica na área de AI/ML com foco em LLM, utilizando o modelo `Llama-2-7B` do repositório do Hugging Face.
+
+
+
+## **Referências**
+Para consultar as referências utilizadas nesse projeto, consulte o arquivo `Referencias.pdf` incluído neste repositório.
 
 ## **Licença**
 

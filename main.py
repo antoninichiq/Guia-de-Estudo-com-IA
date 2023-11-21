@@ -20,7 +20,7 @@ if 'materia_atual' not in st.session_state:
     st.session_state.materia_atual = None
 if 'dicio_grafico' not in st.session_state:
     st.session_state.dicio_grafico = {}
-nlp = load('pt_core_news_lg') # modelo de processamento de linguagem natural (PLN) do pacote spaCy para portugues
+nlp = load('pt_core_news_lg') # Modelo de processamento de linguagem natural (PLN) do pacote spaCy para português
 gramatica = ''
 
 
@@ -150,7 +150,7 @@ def grafic():
     materias = list(st.session_state.dicio_grafico.keys())
     valores = list(st.session_state.dicio_grafico.values())
 
-    fig, ax = plt.subplots()  # Cria uma figura e um conjunto de subplots
+    fig, ax = plt.subplots() 
 
     # Criando o gráfico de barras
     ax.bar(materias, valores)
@@ -212,36 +212,36 @@ if user_materia != 'Selecionar': # Verifica se o usuário selecionou uma matéri
         else:
             st.error("Por favor, insira um tema para gerar a resposta.")
 
-if user_materia != st.session_state.materia_atual: # serve pra resetar a barra de progresso e o indice qnd muda de materia
+if user_materia != st.session_state.materia_atual: # Reseta a barra de progresso e o indice quando muda de materia
     st.session_state.progresso = 0
     st.session_state.indice_pergunta = 0
     st.session_state.materia_atual = user_materia
 
 
 st.session_state['user_materia'] = user_materia
-if user_materia != 'Selecionar': # aqui está o jogo de pergunta e resposta com a barra de progresso
+if user_materia != 'Selecionar': # Jogo de pergunta e resposta com a barra de progresso
     
     pergunta_atual = perguntas_respostas[user_materia][st.session_state['indice_pergunta']]
     st.subheader(f'Vamos testar seu conhecimento em {user_materia}!')
-    st.write(pergunta_atual['pergunta']) # aqui está a pergunta q aparece na tela 
+    st.write(pergunta_atual['pergunta']) # Pergunta que aparece na tela 
     opcao_escolhida = st.radio("Alternativas", pergunta_atual['opcoes'])
 
     if st.button("Validar resposta"): 
         if opcao_escolhida == pergunta_atual['resposta_correta']:
             st.success("Resposta correta!")
-            st.session_state.progresso += 1 # soma meus acertos
+            st.session_state.progresso += 1 
         else:
             st.error("Resposta incorreta.")
 
-    st.session_state.dicio_grafico[st.session_state['user_materia']] = st.session_state.progresso # armazena materia e progresso no dicionario para o gráfico
+    st.session_state.dicio_grafico[st.session_state['user_materia']] = st.session_state.progresso # Armazena materia e progresso no dicionario para o gráfico
 
     def proxima_pergunta():
-        st.session_state['indice_pergunta'] += 1 # atualiza em qual pergunta estou
+        st.session_state['indice_pergunta'] += 1
         if st.session_state['indice_pergunta'] >= len(perguntas_respostas[user_materia]):
             st.session_state['indice_pergunta'] = 0
             st.info(f"Você completou todas as perguntas de {st.session_state.user_materia}! Refaça ou troque a matéria!.")
 
-    def criar_botao(): # cria o botao da função acima
+    def criar_botao(): # Cria o botao da função acima
         col1, col2 = st.columns([0.85, 0.24])
         with col2: 
             st.button("Próxima pergunta", on_click=proxima_pergunta)

@@ -34,12 +34,6 @@ Este projeto utiliza o modelo `Llama-2-7B` do Hugging Face. Para configurar o mo
 
 **Executando o Projeto**
 
-Após configurar o modelo, você pode executar o projeto com o seguinte comando:
-
-```bash
-streamlit run main.py
-```
-
 Certifique-se de ter todas as dependências necessárias instaladas. Você pode instalá-las usando:
 ```bash
 pip install -r requirements.txt
@@ -48,7 +42,11 @@ Em seguida, instale o modelo de linguagem português para o spaCy:
 ```bash
 python -m spacy download pt_core_news_lg
 ```
+Após configurar o modelo, você pode executar o projeto com o seguinte comando:
 
+```bash
+streamlit run main.py
+```
 
 ## **Créditos**
 
